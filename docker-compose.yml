@@ -1,0 +1,15 @@
+version: "3.8"
+services:
+  kratos:
+    image: oryd/kratos:v1.2.0
+    command: serve -c /etc/config/kratos/kratos.yml --dev --watch-courier
+    environment:
+      - LOG_LEVEL=debug
+      - DSN=memory
+      - KRATOS_PUBLIC_URL=http://localhost:4433
+      - KRATOS_ADMIN_URL=http://localhost:4434/admin
+    ports:
+      - "4433:4433" # public API
+      - "4434:4434" # admin API
+    volumes:
+      - ./kratos:/etc/config/kratos:ro

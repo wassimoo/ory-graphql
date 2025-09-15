@@ -1,0 +1,29 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://example.com/identity.schema.json",
+  "title": "Default Identity Schema",
+  "type": "object",
+  "properties": {
+    "traits": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string",
+          "format": "email",
+          "ory.sh/kratos": {
+            "credentials": {
+              "password": {
+                "identifier": true
+              }
+            }
+          }
+        }
+      },
+      "required": ["email"],
+      "additionalProperties": false
+    }
+  },
+  "required": ["traits"],
+  "additionalProperties": false
+}
+
